@@ -24,3 +24,7 @@ Route::get('/seeker/list',[AdminController::class,'seekersList'])->name('seekers
 Route::get('/seeker/edit/{id}/{name}',[AdminController::class,'editSeeker'])->middleware('AdminIsValidCheck');
 Route::post('/seeker/edit',[AdminController::class,'editSeekerSubmit'])->name('editSeeker')->middleware('AdminIsValidCheck');
 Route::get('/seeker/delete/{id}/{name}',[AdminController::class,'deleteSeeker'])->name('deleteSeeker')->middleware('AdminIsValidCheck');
+Route::get('/admin/profile',[AdminController::class,'adminProfile'])->name('adminProfile')->middleware('AdminIsValidCheck');
+Route::get('/posts/list',[AdminController::class,'showAllPost'])->name('showAllPost')->middleware('AdminIsValidCheck');
+Route::get('/post/edit/{id}/{name}',[AdminController::class,'editPost'])->middleware('AdminIsValidCheck');
+Route::post('/post/edit',[AdminController::class,'editPostSubmit'])->name('editPost')->middleware('AdminIsValidCheck');

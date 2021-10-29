@@ -23,13 +23,16 @@
             <a class="dropdown-item" href="{{route('seekersList')}}">Job Seeker</a>
             <a class="dropdown-item" href="{{route('adminSignup')}}">Freelance Employer</a>
             <a class="dropdown-item" href="{{route('adminSignup')}}">Corporate Employer</a>
-            <a class="dropdown-item" href="{{route('adminSignup')}}">Posts</a>
+            <a class="dropdown-item" href="{{route('showAllPost')}}">Posts</a>
             <a class="dropdown-item" href="{{route('adminSignup')}}">Queries</a>
         </li>
         @endif
       </ul>
       <ul class="nav navbar-nav navbar-right">
         @if(Session::has('admin'))
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('adminProfile')}}">Welcome {{Session()->get('admin')}}</a>
+        </li>
         <li class="nav-item">
           <a class="btn btn-danger" href="{{route('logout')}}">Logout</a>
         </li>
