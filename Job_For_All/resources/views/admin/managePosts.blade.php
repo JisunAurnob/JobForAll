@@ -22,7 +22,7 @@
             <td>{{$post->Employment_Status}}</td>
             <td>{{$post->Job_Location}}</td>
             <td>{{$post->Deadline}}</td>
-            <td>{{$post->Posted_By}}</td>
+            <td>{{substr($post->Posted_By, 1, 150)}}</td>
             <td>{{$post->Post_Status}}</td>
             <td><a href="/post/edit/{{$post->Post_id}}/{{$post->Post_Title}}" class="btn btn-primary">Update</a></td>
             <td><a href="/post/delete/{{$post->Post_id}}/{{$post->Post_Title}}" class="btn btn-danger">Delete</a></td>

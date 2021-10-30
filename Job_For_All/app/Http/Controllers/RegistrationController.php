@@ -18,8 +18,8 @@ class RegistrationController extends Controller
             [
                 'name'=>'required|min:4|max:50',
                 'email'=>'email',
-                'username'=>'required|min:5|max:20',
-                'password'=>'required|confirmed|min:5',
+                'username'=>'required|min:5|max:20|unique:App\Models\Admin,Username',
+                'password'=>'required|confirmed|min:5|regex:/^(\[@,#,$,%])/',
                 'password_confirmation'=>'required',
                 'dob'=>'required',
                 'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/',

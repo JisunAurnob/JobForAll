@@ -80,7 +80,7 @@
     </div>
     <div class="form-group">
         <label for="Posted_By">Posted By</label>
-        <input type="text" id="Posted_By" name="Posted_By" value="{{$post->Posted_By}}"class="form-control">
+        <input type="text" id="Posted_By" name="Posted_By" value="{{substr($post->Posted_By, 1, 150)}}" readonly class="form-control">
         @error('Posted_By')
             <span class="text-danger">{{$message}}</span>
         @enderror
@@ -88,9 +88,9 @@
     <div class="form-group">
         <label for="Post_Status">Post Status: </label>
         <select name="Post_Status" class="form-control">
-            <option value="approved" @if($post->Post_Status=="Approved"){{"selected"}} @endif >Approve</option>
-            <option value="rejected" @if($post->Post_Status=="Rejected"){{"selected"}} @endif>Reject</option>
-            <option value="pending" @if($post->Post_Status=="Pending"){{"selected"}} @endif>Pending</option>
+            <option value="Approved" @if($post->Post_Status=="Approved"){{"selected"}} @endif >Approve</option>
+            <option value="Rejected" @if($post->Post_Status=="Rejected"){{"selected"}} @endif>Reject</option>
+            <option value="Pending" @if($post->Post_Status=="Pending"){{"selected"}} @endif>Pending</option>
         </select>
         @error('Post_Status')
             <span class="text-danger">{{$message}}</span>

@@ -28,3 +28,4 @@ Route::get('/admin/profile',[AdminController::class,'adminProfile'])->name('admi
 Route::get('/posts/list',[AdminController::class,'showAllPost'])->name('showAllPost')->middleware('AdminIsValidCheck');
 Route::get('/post/edit/{id}/{name}',[AdminController::class,'editPost'])->middleware('AdminIsValidCheck');
 Route::post('/post/edit',[AdminController::class,'editPostSubmit'])->name('editPost')->middleware('AdminIsValidCheck');
+Route::post('upload-image', [AdminController::class, 'changeAdminProPic']);
