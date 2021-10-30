@@ -2,8 +2,10 @@
 @section('content')
 @if(Session::has('admin'))
 <center><h3>Welcome Admin Dashboard</h3></center>
-<p>Total Seekers: {{count($seekers)}}</p>
-<p>Total Posts: {{count($posts)}}</p>
+<p style="color: rgb(218, 136, 14); font-size: 25px;">Total Seekers: {{count($seekers)}}</p>
+<p style="color: rgb(116, 0, 77); font-size: 25px;">Total Freelance Employers: {{count($femps)}}</p>
+<p style="color: rgb(9, 161, 231); font-size: 25px;">Total Corporate Employers: {{count($cemps)}}</p>
+<p style="color: rgb(36, 119, 28); font-size: 25px;">Total Posts: {{count($posts)}}</p>
 <div class="card">
         <div class="card-body">
             <h3 style="color: blueviolet">Latest Post</h3><br>
