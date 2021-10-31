@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Contact')
 @section('content')
     <form action="{{route('contact')}}" class="col-md-6" method="post">
         {{csrf_field()}}

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Update Post')
 @section('content')
 
 <form action="{{route('editPost')}}" class="col-md-6" method="post">

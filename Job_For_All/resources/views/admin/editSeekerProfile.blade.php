@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Edit Seeker Profile')
 @section('content')
 
 <form action="{{route('editSeeker')}}" class="col-md-6" method="post">

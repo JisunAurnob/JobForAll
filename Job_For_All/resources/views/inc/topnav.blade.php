@@ -21,14 +21,21 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{route('seekersList')}}">Job Seeker</a>
-            <a class="dropdown-item" href="{{route('adminSignup')}}">Freelance Employer</a>
-            <a class="dropdown-item" href="{{route('adminSignup')}}">Corporate Employer</a>
+            <a class="dropdown-item" href="{{route('corporateList')}}">Freelance Employer</a>
+            <a class="dropdown-item" href="{{route('corporateList')}}">Corporate Employer</a>
             <a class="dropdown-item" href="{{route('showAllPost')}}">Posts</a>
-            <a class="dropdown-item" href="{{route('adminSignup')}}">Queries</a>
+            <a class="dropdown-item" href="{{route('queryLists')}}">Queries</a>
         </li>
         @endif
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        {{-- <form class="form-inline my-2 my-lg-0" action="{{route('searchRidirect')}}" method="POST">
+          <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search Jobs" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> --}}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('search') }}">Search <span class="sr-only">(current)</span></a>
+        </li>
         @if(Session::has('admin'))
         <li class="nav-item">
           <a class="nav-link" href="{{route('adminProfile')}}">Welcome {{Session()->get('admin')}}</a>

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Manage Seekers')
 @section('content')
 
 <table class="table table-borded">
