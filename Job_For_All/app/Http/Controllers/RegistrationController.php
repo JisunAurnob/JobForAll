@@ -19,7 +19,7 @@ class RegistrationController extends Controller
                 'name'=>'required|min:4|max:50',
                 'email'=>'email',
                 'username'=>'required|min:5|max:20|unique:App\Models\Admin,Username',
-                'password'=>'required|confirmed|min:5|regex:/^(\[@,#,$,%])/',
+                'password'=>'required|confirmed|min:5',
                 'password_confirmation'=>'required',
                 'dob'=>'required',
                 'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/',
@@ -38,6 +38,7 @@ class RegistrationController extends Controller
             $var->password=md5($request->password_confirmation);
             $var->dob = $request->dob;
             $var->gender = $request->gender;
+            $var->Picture = '/images/image_not_found.gif';
             $var->save();
         return redirect()->route('login');    
     }

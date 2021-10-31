@@ -1,6 +1,10 @@
 @extends('layouts.app')
+@section('title', 'Admin Signup')
 @section('content')
 <center><h2>Admin Registration</h2></center>
+<div class="row">
+<div class="col-md-11 offset-md-3">
+  
     <form action="{{route('adminSignup')}}" class="col-md-6" method="post">
         {{csrf_field()}}
         <div class="form-group">
@@ -66,4 +70,5 @@
         </div>
         <input type="submit" class="btn btn-success" value="Signup">
     </form>
+</div></div>
 @endsection

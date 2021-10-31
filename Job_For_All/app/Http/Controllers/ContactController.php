@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Contact;
+
 class ContactController extends Controller
 {
     public function contact(){
@@ -23,6 +25,12 @@ class ContactController extends Controller
                 'name.min'=>'Name should be more than 5 charcters'
             ]
             );
-        return "<h1>Your Contact Request</h1> <br>Name: ".$request->name."<br>Email: ".$request->email."<br>Phone: ".$request->phone."<br>Message: ".$request->message;      
+            $var = new Contact();
+            $var->Name= $request->name;
+            $var->Email = $request->email;
+            $var->Phone = $request->phone;
+            $var->Message = $request->message;
+            $var->save();
+            return redirect()->route('home');      
     }
 }

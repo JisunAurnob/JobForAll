@@ -6,10 +6,12 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
-    return view('pages.home');
-})->name('home');
+    return redirect()->route('home');
+});
+Route::get('/home',[HomeController::class,'home'])->name('home');
 Route::get('/admin/registration',[RegistrationController::class,'adminRegistration'])->name('adminSignup');
 Route::post('/admin/registration',[RegistrationController::class,'validateAdminRegistration'])->name('adminSignup');
 Route::get('/login',[LoginController::class,'login'])->name('login');
@@ -27,5 +29,14 @@ Route::get('/seeker/delete/{id}/{name}',[AdminController::class,'deleteSeeker'])
 Route::get('/admin/profile',[AdminController::class,'adminProfile'])->name('adminProfile')->middleware('AdminIsValidCheck');
 Route::get('/posts/list',[AdminController::class,'showAllPost'])->name('showAllPost')->middleware('AdminIsValidCheck');
 Route::get('/post/edit/{id}/{name}',[AdminController::class,'editPost'])->middleware('AdminIsValidCheck');
+Route::get('/post/delete/{id}/{name}',[AdminController::class,'deletePost'])->name('deletePost')->middleware('AdminIsValidCheck');
 Route::post('/post/edit',[AdminController::class,'editPostSubmit'])->name('editPost')->middleware('AdminIsValidCheck');
-Route::post('upload-image', [AdminController::class, 'changeAdminProPic']);
+Route::post('upload-image', [AdminController::class, 'changeAdminProPic'])->middleware('AdminIsValidCheck');
+Route::get('/jobs/search',[HomeController::class,'index'])->name('search');
+Route::get('/search',[HomeController::class,'search']);
+// Route::post('/searchRidirect',[HomeController::class,'searchRidirect'])->name('searchRidirect');
+Route::get('/queries',[AdminController::class,'queryList'])->name('queryLists')->middleware('AdminIsValidCheck');
+Route::get('/contact/delete/{id}/{name}',[AdminController::class,'deleteQuery'])->name('deleteQuery')->middleware('AdminIsValidCheck');
+Route::get('/corporates/list',[AdminController::class,'corporateList'])->name('corporateList')->middleware('AdminIsValidCheck');
+// Route::get('/post/edit/{id}/{name}',[AdminController::class,'editPost'])->middleware('AdminIsValidCheck');
+Route::get('/corporates/delete/{id}/{name}',[AdminController::class,'deleteCorporates'])->name('deleteCorporates')->middleware('AdminIsValidCheck');

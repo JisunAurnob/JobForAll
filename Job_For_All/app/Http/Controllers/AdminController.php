@@ -14,6 +14,8 @@ use App\Models\Corp_emp;
 
 use App\Models\F_emp;
 
+use App\Models\Contact;
+
 class AdminController extends Controller
 {
     public function dashboard(){
@@ -43,9 +45,7 @@ class AdminController extends Controller
          'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
  
         ]);
- 
-        $name = $request->file('image')->getClientOriginalName();
- 
+
         $path = $request->file('image')->store('public/images');
  
  
@@ -174,5 +174,30 @@ class AdminController extends Controller
         $var->Job_Location = $request->Job_Location;
         $var->save();
         return redirect()->route('showAllPost');
+    }
+    public function deletePost(Request $request){
+        $var = Post::where('Post_id',$request->id)->first();
+        $var->delete();
+        return redirect()->route('showAllPost');
+    }
+    public function queryList(){
+        $contacts = array();
+        $contacts = Contact::all();
+        return view('admin.manageQueries')->with('contacts',$contacts);
+    }
+    public function deleteQuery(Request $request){
+        $var = Contact::where('id',$request->id)->first();
+        $var->delete();
+        return redirect()->route('queryLists');
+    }
+    public function corporateList(){
+        $corporates = array();
+        $corporates = Corp_emp::all();
+        return view('admin.manageCorporates')->with('corporates',$corporates);
+    }
+    public function deleteCorporates(Request $request){
+        $var = Corp_emp::where('Corporate_id',$request->id)->first();
+        $var->delete();
+        return redirect()->route('corporateList');
     }
 }

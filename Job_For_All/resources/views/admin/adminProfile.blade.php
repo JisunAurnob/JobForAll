@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Admin Profile')
 @section('content')
 @if(Session::has('admin'))
 <center><h3>Admin Profile</h3></center>

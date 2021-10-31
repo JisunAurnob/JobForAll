@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Manage Posts')
+@section('title', 'Manage Freelance Employers')
 @section('content')
 
 <table class="table table-borded">
