@@ -27,7 +27,8 @@ class RegistrationController extends Controller
             ],
             [
                 'name.required'=>'Name is needed',
-                'name.min'=>'Name should be more than 4 charecters'
+                'name.min'=>'Name should be more than 4 charecters',
+                'password.confirmed'=>'Password And Confirm Password Dose Not Match!',
             ]
             );
             $var = new Admin();

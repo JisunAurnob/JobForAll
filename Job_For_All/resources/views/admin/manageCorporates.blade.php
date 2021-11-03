@@ -25,8 +25,8 @@
             <td>{{$corporate->Phone}}</td>
             <td>{{substr($corporate->Username, 1, 150)}}</td>
             <td>{{$corporate->Website}}</td>
-            <td><a href="/corporates/edit/{{$corporate->Corporate_id}}/{{$corporate->CompanyName}}" class="btn btn-primary">Update</a></td>
-            <td><a href="/corporates/delete/{{$corporate->Corporate_id}}/{{$corporate->CompanyName}}" class="btn btn-danger">Delete</a></td>
+            <td><a href="/employers/corporates/edit/{{$corporate->Corporate_id}}/{{$corporate->CompanyName}}" class="btn btn-primary">Update</a></td>
+            <td><a href="/employers/corporates/delete/{{$corporate->Corporate_id}}/{{$corporate->CompanyName}}" class="btn btn-danger">Delete</a></td>
         </tr>
     @endforeach
 </table>

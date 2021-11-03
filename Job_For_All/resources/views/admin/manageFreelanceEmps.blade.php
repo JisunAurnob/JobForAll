@@ -4,29 +4,29 @@
 
 <table class="table table-borded">
     <tr>
-        <th>Post ID</th>
-        <th>Post Title</th>
-        <th>Salary</th>
-        <th>Employment Status</th>
-        <th>Job Location</th>
-        <th>Deadline</th>
-        <th>Posted By</th>
-        <th>Post Status</th>
+        <th>Freelance ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Job Type</th>
+        <th>Address</th>
+        <th>Username</th>
+        <th>NID</th>
         <th>Action</th>
         <th></th>
     </tr>
-    @foreach($posts as $post)
+    @foreach($femps as $femp)
         <tr>
-            <td>{{$post->Post_id}}</td>
-            <td>{{$post->Post_Title}}</td>
-            <td>{{$post->Salary}}</td>
-            <td>{{$post->Employment_Status}}</td>
-            <td>{{$post->Job_Location}}</td>
-            <td>{{$post->Deadline}}</td>
-            <td>{{substr($post->Posted_By, 1, 150)}}</td>
-            <td>{{$post->Post_Status}}</td>
-            <td><a href="/post/edit/{{$post->Post_id}}/{{$post->Post_Title}}" class="btn btn-primary">Update</a></td>
-            <td><a href="/post/delete/{{$post->Post_id}}/{{$post->Post_Title}}" class="btn btn-danger">Delete</a></td>
+            <td>{{$femp->Freelance_id }}</td>
+            <td>{{$femp->Name}}</td>
+            <td>{{$femp->Email}}</td>
+            <td>{{$femp->Phone}}</td>
+            <td>{{$femp->JobType}}</td>
+            <td>{{$femp->Address}}</td>
+            <td>{{substr($femp->Username, 1, 150)}}</td>
+            <td>{{$femp->NID}}</td>
+            <td><a href="/employers/freelance/edit/{{$femp->Freelance_id }}/{{$femp->Name}}" class="btn btn-primary">Update</a></td>
+            <td><a href="/employers/freelance/delete/{{$femp->Freelance_id }}/{{$femp->Name}}" class="btn btn-danger">Delete</a></td>
         </tr>
     @endforeach
 </table>
