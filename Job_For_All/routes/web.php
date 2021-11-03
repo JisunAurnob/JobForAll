@@ -40,3 +40,30 @@ Route::get('/contact/delete/{id}/{name}',[AdminController::class,'deleteQuery'])
 Route::get('/corporates/list',[AdminController::class,'corporateList'])->name('corporateList')->middleware('AdminIsValidCheck');
 // Route::get('/post/edit/{id}/{name}',[AdminController::class,'editPost'])->middleware('AdminIsValidCheck');
 Route::get('/corporates/delete/{id}/{name}',[AdminController::class,'deleteCorporates'])->name('deleteCorporates')->middleware('AdminIsValidCheck');
+
+
+//waythin
+
+Route::get('/seeker/dashboard' , [SeekerController::class, 'dashboard'])->name('dashboard');
+
+//sign up
+Route::get('/seeker/signup',[SeekerController::class, 'signup'])->name('signup');
+Route::post('/seeker/signup',[SeekerController::class, 'signupS'])->name('signup');
+
+//seeker  
+Route::get('/seeker/profile',[SeekerController::class, 'profile'])->name('profile')->middleware('SeekerAuth');
+Route::get('/seeker/profile/edit/{id}/{username}',[SeekerController::class, 'edit_profile'])->name('seekeredit')->middleware('SeekerAuth');
+Route::post('/seeker/profile/edit',[SeekerController::class, 'edit_profileS'])->name('seekeredit')->middleware('SeekerAuth');
+
+// job list
+Route::get('/joblist',[PostController::class, 'job_list'])->name('joblist');
+
+//job details
+Route::get('/seeker/job_details/{id}/{title}',[PostController::class, 'job_details'])->middleware('SeekerAuth');
+
+//apply
+ Route::post('/seeker/job_details/applyjob',[PostController::class, 'apply_job'])->name('applyJob')->middleware('SeekerAuth');
+ Route::get('/seeker/job_details/applied_job_list',[PostController::class, 'applied_job_list'])->name('applied_job_list')->middleware('SeekerAuth');
+
+ //Cancel Application
+ Route::get('/seeker/cancelapp/{id}/{title}',[PostController::class, 'cancel_application']);
