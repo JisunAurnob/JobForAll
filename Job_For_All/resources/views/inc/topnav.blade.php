@@ -21,7 +21,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{route('seekersList')}}">Job Seeker</a>
-            <a class="dropdown-item" href="{{route('freempList')}}">Freelance Employer</a>
+            <a class="dropdown-item" href="#">Freelance Employer</a>
             <a class="dropdown-item" href="{{route('corporateList')}}">Corporate Employer</a>
             <a class="dropdown-item" href="{{route('showAllPost')}}">Posts</a>
             <a class="dropdown-item" href="{{route('queryLists')}}">Queries</a>
