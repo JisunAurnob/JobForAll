@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1c1a17;">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #282044;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,7 +21,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{route('seekersList')}}">Job Seeker</a>
-            <a class="dropdown-item" href="#">Freelance Employer</a>
+            <a class="dropdown-item" href="{{route('corporateList')}}">Freelance Employer</a>
             <a class="dropdown-item" href="{{route('corporateList')}}">Corporate Employer</a>
             <a class="dropdown-item" href="{{route('showAllPost')}}">Posts</a>
             <a class="dropdown-item" href="{{route('queryLists')}}">Queries</a>

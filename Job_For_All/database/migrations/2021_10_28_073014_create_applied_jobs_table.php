@@ -17,7 +17,6 @@ class CreateAppliedJobsTable extends Migration
             $table->bigIncrements('History_ID');
             $table->string('Post_id',150);
             $table->string('Post_Title',150);
-            $table->string('Applied_By',100);
             $table->timestamps();
         });
     }

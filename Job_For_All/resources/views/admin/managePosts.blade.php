@@ -24,10 +24,7 @@
             <td>{{$post->Job_Location}}</td>
             <td>{{$post->Deadline}}</td>
             <td>{{substr($post->Posted_By, 1, 150)}}</td>
-            <td @if($post->Post_Status=="Approved")style="color: green"
-                @elseif($post->Post_Status=="Rejected")style="color: red"
-                @elseif($post->Post_Status=="Pending")style="color: blue"
-                @endif>{{$post->Post_Status}}</td>
+            <td>{{$post->Post_Status}}</td>
             <td><a href="/post/edit/{{$post->Post_id}}/{{$post->Post_Title}}" class="btn btn-primary">Update</a></td>
             <td><a href="/post/delete/{{$post->Post_id}}/{{$post->Post_Title}}" class="btn btn-danger">Delete</a></td>
         </tr>

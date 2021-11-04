@@ -200,14 +200,4 @@ class AdminController extends Controller
         $var->delete();
         return redirect()->route('corporateList');
     }
-    public function freempList(){
-        $femps = array();
-        $femps = F_emp::all();
-        return view('admin.manageFreelanceEmps')->with('femps',$femps);
-    }
-    public function deletefreemp(Request $request){
-        $var = F_emp::where('Freelance_id ',$request->id)->first();
-        $var->delete();
-        return redirect()->route('freempList');
-    }
 }
