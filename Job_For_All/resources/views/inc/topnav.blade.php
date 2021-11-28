@@ -50,7 +50,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{route('adminSignup')}}">Admin</a>
-            <a class="dropdown-item" href="#">Job Seeker</a>
+            <a class="dropdown-item" href="{{route('seekerSignup')}}">Job Seeker</a>
             <a class="dropdown-item" href="#">Freelance Employer</a>
             <a class="dropdown-item" href="#">Corporate Employer</a>
         </li>

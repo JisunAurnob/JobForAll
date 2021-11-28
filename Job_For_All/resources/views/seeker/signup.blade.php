@@ -84,7 +84,7 @@ a {
 </head>
 <body>
 
-<form action="{{route('signup')}}" method="post">
+<form action="{{route('seekerSignup')}}" method="post">
   {{csrf_field()}}
 
   <div class="container,login-block">

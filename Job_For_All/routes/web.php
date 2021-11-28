@@ -7,6 +7,8 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\SeekerController;
 
 Route::get('/', function () {
     return redirect()->route('home');
@@ -47,8 +49,8 @@ Route::get('/corporates/delete/{id}/{name}',[AdminController::class,'deleteCorpo
 Route::get('/seeker/dashboard' , [SeekerController::class, 'dashboard'])->name('dashboard');
 
 //sign up
-Route::get('/seeker/signup',[SeekerController::class, 'signup'])->name('signup');
-Route::post('/seeker/signup',[SeekerController::class, 'signupS'])->name('signup');
+Route::get('/seeker/signup',[SeekerController::class, 'signup'])->name('seekerSignup');
+Route::post('/seeker/signup',[SeekerController::class, 'signupS'])->name('seekerSignup');
 
 //seeker  
 Route::get('/seeker/profile',[SeekerController::class, 'profile'])->name('profile')->middleware('SeekerAuth');
