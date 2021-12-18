@@ -34,6 +34,21 @@ class AdminController extends Controller
         ->with('cemps',$cemps)
         ->with('femps',$femps);
     }
+    public function dashboardAPI(){
+        $seekers = array();
+        $seekers = Seeker::all();
+        $admins = array();
+        $admins = Admin::all();
+        $posts = array();
+        $posts = Post::all();
+        $cemps = array();
+        $cemps = Corp_emp::all();
+        $femps = array();
+        $femps = F_emp::all();
+        $latestPost = Post::orderBy('created_at', 'desc')->get()->first();
+        $dashData = array("admins"=>count($admins), "seekers"=>count($seekers), "cemps"=>count($cemps), "femps"=>count($femps), "posts"=>count($posts), "latestPost"=>$latestPost,);
+        return $dashData;
+    }
     public function adminProfile(){
         $admin = Admin::where('Admin_id',Session()->get('adminId'))->first();
         return view('admin.adminProfile')->with('admin',$admin);
@@ -60,32 +75,38 @@ class AdminController extends Controller
         $admin = Admin::where('Admin_id',Session()->get('adminId'))->first();
         return view('admin.editAdminProfile')->with('user',$admin);
     }
+    public function editAdminInfoAPI(Request $request){
+        $admin = Admin::where('Admin_id',$request->id)->first();
+        return $admin;
+    }
     public function adminInfoUpdate(Request $request){
         $this->validate(
             $request,
             [
-                'name'=>'required|min:4|max:50',
-                'email'=>'email',
-                'username'=>'required|min:5|max:20',
-                'dob'=>'required',
-                'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/',
-                'gender'=>'required'
+                'Name'=>'required|min:4|max:50',
+                'Email'=>'email',
+                'Username'=>'required|min:5|max:20',
+                'Dob'=>'required',
+                'Phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+                'Gender'=>'required'
             ],
             [
-                'name.required'=>'Name is needed',
-                'name.min'=>'Name should be more than 4 charecters'
+                'Name.required'=>'Name is needed',
+                'Name.min'=>'Name should be more than 4 charecters'
             ]
             );
 
-        $var = Admin::where('Admin_id',Session()->get('adminId'))->first();
-        $var->Name= $request->name;
-        $var->Email = $request->email;
-        $var->Phone = $request->phone;
-        $var->Username = $request->username;
-        $var->Dob = $request->dob;
-        $var->Gender = $request->gender;
+        $var = Admin::where('Admin_id',$request->Admin_id)->first();
+        $var->Name= $request->Name;
+        $var->Email = $request->Email;
+        $var->Phone = $request->Phone;
+        $var->Username = $request->Username;
+        $var->Dob = $request->Dob;
+        $var->Gender = $request->Gender;
+        $var->Picture = "/images/2SL1DImMVNv5l8wR1u1BnFwlDJoz0i8Z8FboH7WU.jpg";
         $var->save();
-        return redirect()->route('adminProfile');
+        // return redirect()->route('adminProfile');
+        return $var;
     }
     public function seekersList(){
         $seekers = array();
@@ -135,10 +156,21 @@ class AdminController extends Controller
         $posts = Post::all();
         return view('admin.managePosts')->with('posts',$posts);
     }
+    public function showAllPostAPI(){
+        $posts = array();
+        $posts = Post::all();
+        // return view('admin.managePosts')->with('posts',$posts);
+        return $posts;
+    }
     public function editPost(Request $request){
         $id = $request->id;
         $post = Post::where('Post_id',$id)->first();
         return view('admin.editPost')->with('post', $post);
+    }
+    public function editPostAPI(Request $request){
+        $id = $request->id;
+        $post = Post::where('Post_id',$id)->first();
+        return $post;
     }
     public function editPostSubmit(Request $request){
         $this->validate(
@@ -173,12 +205,14 @@ class AdminController extends Controller
         $var->Post_Status = $request->Post_Status;
         $var->Job_Location = $request->Job_Location;
         $var->save();
-        return redirect()->route('showAllPost');
+        // return redirect()->route('showAllPost');
+        return $var;
     }
     public function deletePost(Request $request){
         $var = Post::where('Post_id',$request->id)->first();
         $var->delete();
-        return redirect()->route('showAllPost');
+        //return redirect()->route('showAllPost');
+        return $var;
     }
     public function queryList(){
         $contacts = array();

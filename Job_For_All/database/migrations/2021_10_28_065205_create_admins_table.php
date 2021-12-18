@@ -22,6 +22,7 @@ class CreateAdminsTable extends Migration
             $table->string('Password',100);
             $table->string('Dob',15);
             $table->string('Gender',6);
+            $table->string('Picture',500);
             $table->timestamps();
         });
     }

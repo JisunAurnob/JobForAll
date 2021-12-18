@@ -40,6 +40,7 @@ class RegistrationController extends Controller
             $var->gender = $request->gender;
             $var->Picture = '/images/image_not_found.gif';
             $var->save();
-        return redirect()->route('login');    
+        // return redirect()->route('login');
+        return $var;    
     }
 }
