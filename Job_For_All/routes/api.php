@@ -35,3 +35,7 @@ Route::get('/posts/list',[AdminController::class,'showAllPostAPI'])->middleware(
 Route::get('/post/{id}',[AdminController::class,'editPostAPI'])->middleware('APILoginAuth'); // For getting individual Post Data
 Route::post('/post/update',[AdminController::class,'editPostSubmit'])->middleware('APILoginAuth'); //For Updating Posts
 Route::get('/post/delete/{id}',[AdminController::class,'deletePost']); //For Deleting Posts
+Route::get('/seeker/list',[AdminController::class,'seekersList'])->middleware('APILoginAuth'); //For Getting All Seeker Users
+Route::get('/femp/list',[AdminController::class,'fempsList'])->middleware('APILoginAuth'); //For Getting All Freelance Employers
+Route::get('/cemp/list',[AdminController::class,'corporateList'])->middleware('APILoginAuth'); //For Getting All Freelance Employers
+Route::get('/home/counts',[AdminController::class,'countsAPI']); //For getting total user or job counts

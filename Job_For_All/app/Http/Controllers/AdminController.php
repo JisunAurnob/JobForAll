@@ -49,6 +49,20 @@ class AdminController extends Controller
         $dashData = array("admins"=>count($admins), "seekers"=>count($seekers), "cemps"=>count($cemps), "femps"=>count($femps), "posts"=>count($posts), "latestPost"=>$latestPost,);
         return $dashData;
     }
+    public function countsAPI(){
+        $seekers = array();
+        $seekers = Seeker::all();
+        $admins = array();
+        $admins = Admin::all();
+        $posts = array();
+        $posts = Post::all();
+        $cemps = array();
+        $cemps = Corp_emp::all();
+        $femps = array();
+        $femps = F_emp::all();
+        $countData = array("userCount"=>count($admins)+count($seekers)+count($cemps)+count($femps), "seekers"=>count($seekers), "cemps"=>count($cemps), "femps"=>count($femps), "posts"=>count($posts));
+        return $countData;
+    }
     public function adminProfile(){
         $admin = Admin::where('Admin_id',Session()->get('adminId'))->first();
         return view('admin.adminProfile')->with('admin',$admin);
@@ -111,7 +125,14 @@ class AdminController extends Controller
     public function seekersList(){
         $seekers = array();
         $seekers = Seeker::all();
-        return view('admin.manageSeekers')->with('seekers',$seekers);
+        //return view('admin.manageSeekers')->with('seekers',$seekers);
+        return $seekers;
+    }
+    public function fempsList(){
+        $femps = array();
+        $femps = F_emp::all();
+        //return view('admin.manageSeekers')->with('seekers',$seekers);
+        return $femps;
     }
     public function deleteSeeker(Request $request){
         $var = Seeker::where('Seeker_id',$request->id)->first();
@@ -227,7 +248,8 @@ class AdminController extends Controller
     public function corporateList(){
         $corporates = array();
         $corporates = Corp_emp::all();
-        return view('admin.manageCorporates')->with('corporates',$corporates);
+        // return view('admin.manageCorporates')->with('corporates',$corporates);
+        return $corporates;
     }
     public function deleteCorporates(Request $request){
         $var = Corp_emp::where('Corporate_id',$request->id)->first();
