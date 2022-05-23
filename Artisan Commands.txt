@@ -1,0 +1,25 @@
+composer create-project laravel/laravel your_project_name
+
+php artisan make:controller HomeController
+
+php artisan make:model modelname
+
+php artisan serve (Development server)
+
+php artisan serve --port=8080
+
+php artisan key:generate
+
+php artisan make:migration create_admins_table
+
+php artisan migrate
+
+php artisan make:model ModelName -m
+
+php artisan make:middleware AdminIsValidCheck
+
+php artisan migrate:rollback
+
+php artisan serve --host 192.168.0.105 --port 8000
+
+php artisan storage:link
